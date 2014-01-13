@@ -30,7 +30,6 @@ public class DataStructuresIntro {
 	 * @return the average time (in seconds) for a .contains(x) call on a HashSet
 	 */
 	public static double hashSetMetrics() {
-		long start = System.currentTimeMillis();
 		
 		Set<Long> mySet = new HashSet<Long>();
 		Random rand = new Random();
@@ -38,7 +37,8 @@ public class DataStructuresIntro {
 		for(int i = 0; i < SIZE; i++) {
 			mySet.add(rand.nextLong());
 		}
-		
+
+		long start = System.currentTimeMillis();
 		for(int i = 0; i < SIZE; i++) {
 			mySet.contains(rand.nextLong());
 		}
@@ -54,7 +54,6 @@ public class DataStructuresIntro {
 	 * @return the average time (in seconds) for a .contains(x) call on an ArrayList
 	 */
 	public static double arrayListMetrics() {
-		long start = System.currentTimeMillis();
 		
 		List<Long> myList = new ArrayList<Long>();
 		Random rand = new Random();
@@ -62,7 +61,8 @@ public class DataStructuresIntro {
 		for(int i = 0; i < SIZE; i++) {
 			myList.add(rand.nextLong());
 		}
-		
+
+		long start = System.currentTimeMillis();
 		for(int i = 0; i < SIZE; i++) {
 			myList.contains(rand.nextLong());
 		}
