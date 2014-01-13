@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
+
 public class DataStructuresIntro {
 	
 	/**
@@ -6,7 +10,8 @@ public class DataStructuresIntro {
 	 */
 	public static void main(String[] args) {
 		System.out.println("For now we will focus on utilizing Java data structures inside this one main class.");
-	
+		System.out.println("Hash set time. " + hashSetMetrics() +" seconds");
+		System.out.println("Array set time. " + arrayListMetrics() +" seconds");
 	}
 	
 	/**
@@ -14,17 +19,60 @@ public class DataStructuresIntro {
 	 * 
 	 * @return the average time (in seconds) for a .contains(x) call on a HashSet
 	 */
-	public static double hashSetMetrics() {
-		return 0.0;
+	private static double hashSetMetrics() {
+		HashSet<Long> mySet = new HashSet<Long>();
+		Random random = new Random();
+				
+		for (int i=0;i<100000;i++){
+			mySet.add(random.nextLong());
+			
+		}
+		
+		long startTime = System.currentTimeMillis();
+		for (int i=0;i<100000;i++){
+			mySet.contains(random.nextLong());
+			
+		}
+		long endTime = System.currentTimeMillis();
+		
+		double result = (endTime - startTime)/1000.0;
+		
+		return result;
+			
+			
+		
 	}
 
 	/**
 	 * While timing the entire method, insert 100000 random numbers into an ArrayList, and then perform 100000 random contains() calls
-	 * 
+	 * Austin is learning some java
 	 * @return the average time (in seconds) for a .contains(x) call on an ArrayList
 	 */
 	public static double arrayListMetrics() {
-		return 0.0;
+		ArrayList<Long> myList = new ArrayList<Long>();
+		Random random = new Random ();
+		
+		for (int i=0;i<100000;i++){
+			myList.add(random.nextLong()); 
+		}
+		
+		long startTime = System.currentTimeMillis();
+		for (int i=0;i<100000;i++){
+			myList.contains(random.nextLong());
+			
+		}
+		long endTime = System.currentTimeMillis();
+		
+		double result = (endTime - startTime)/1000.0;
+		
+		return result;
+		
+	
 	}
 
 }
+
+
+	
+	
+
