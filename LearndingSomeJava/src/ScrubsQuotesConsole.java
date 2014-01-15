@@ -26,7 +26,6 @@ public class ScrubsQuotesConsole {
 					));
 
 	/**
-	 * TODO:
 	 * ****
 	 *  Write a program that interfaces with the console, and as you write any text it gives you a random scrubs quote
 	 *  the program should only give a quote if it receives text (if it's given blank text, it should say 'you must talk in order to get a scrubs quote.')
@@ -36,6 +35,16 @@ public class ScrubsQuotesConsole {
 	 * ****
 	 * @param args
 	 * if (userInput ==  "/^$/")
+	 * 
+	 * 
+	 * PROBLEMS:
+	 * - When you start the console it would be a better experience if it told you 'please enter some text to receive a scrubs quote' or something like that.
+	 *	 Otherwise, when you start it nothing actually happens until you navigate to the console and start typing
+	 * - Already told you earlier, but the spacing is off and it makes it hard to read your code.  Code readability and formatting is really important
+	 * - You should see a warning in eclipse that says resource leak, scanner is never closed. You just need to add this after the while loop:
+	 * 		scanner.close(); 
+	 * 
+	 * Other than those areas looks alright, does what it should do, and good job figuring out the case insensitive part.
 	 */
 	
 		public static void main(String[] args) {
