@@ -1,6 +1,9 @@
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 
 public class ScrubsQuotesConsole {
@@ -21,7 +24,7 @@ public class ScrubsQuotesConsole {
 					"Jordan: I don't dislike you, I nothing you.\nJ.D.: That's special.",
 					"J.D.: [after Janitor pops up behind him] Why do you have to jump out and scare me all the time?\nJanitor: I don't jump out and scare you. I follow you around all day. I only got about an hour and a half of work around here, and the rest of the time I track you, like an animal."
 					));
-	
+
 	/**
 	 * TODO:
 	 * ****
@@ -32,8 +35,31 @@ public class ScrubsQuotesConsole {
 	 *  To save you time, I have given you an ArrayList of scrubs quotes that you can use.
 	 * ****
 	 * @param args
+	 * if (userInput ==  "/^$/")
 	 */
-	public static void main(String[] args) {
+	
+		public static void main(String[] args) {
+			boolean x = true; 
+			Scanner scanner = new Scanner(System.in);
+			Random random = new Random();
+			while(x){
+			String userInput = scanner.nextLine();
 
-	}
+			if (userInput.toLowerCase().equals("go away" )){
+				System.out.println("Good Bye");
+				x = false; 
+			}
+			else if (userInput.equals("")){
+				System.out.println ("You must talk in order to get a scrubs quote. ");
+			}
+			else {
+
+				
+				int a = random.nextInt(scrubsQuotes.size()); 
+				System.out.println (scrubsQuotes.get(a));
+			}
+			}
+		}
+	
 }
+
