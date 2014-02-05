@@ -1,13 +1,8 @@
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 
-
-public class ScrubsQuotesConsole {
-
+public class MethodAndLogicPractice {
 	/**
 	 * Source of quotes: http://www.imdb.com/title/tt0285403/quotes
 	 */
@@ -25,49 +20,56 @@ public class ScrubsQuotesConsole {
 					"J.D.: [after Janitor pops up behind him] Why do you have to jump out and scare me all the time?\nJanitor: I don't jump out and scare you. I follow you around all day. I only got about an hour and a half of work around here, and the rest of the time I track you, like an animal."
 					));
 
+	private final static String EXIT_MESSAGE = "exit"; 
 	/**
-	 * ****
-	 *  Write a program that interfaces with the console, and as you write any text it gives you a random scrubs quote
-	 *  the program should only give a quote if it receives text (if it's given blank text, it should say 'you must talk in order to get a scrubs quote.')
-	 *  the program will exit when the user types 'go away'.  Bonus points if it is case insensitive (GO AWAY and Go Away would make the program exit)
-	 *  
-	 *  To save you time, I have given you an ArrayList of scrubs quotes that you can use.
-	 * ****
+	 * This assignment should help teach some separation of logic, passing of parameters between methods, and general increase of knowledge for Java
+	 * You should read about and learn the method: String.format().  Remember to look at the API documentation
+	 * 
+	 * TODO:
+	 * Write three methods:
+	 *  1) one that handles all console output prefixed with ~ (see below example output for clarification), and calls the other methods 
+	 *  2) one that searches through the array above for a user provided word (make sure this case insensitive of course)
+	 * 	3) and one that let's the user know whether or not the index of where the quote was found is prime or not.
+	 * 
+	 * Three suggested method names:
+	 * searchAndAnalyzeWord
+	 * indexForSearchWord
+	 * isPrime
+	 * 
+	 * Example output:
+	 * lines prefixed with '$' are being printed in the static main() method
+	 * lines prefixed with '~' are being printed in the searchAndAnalyzeWord() method
+	 * lines prefixed with nothing are from the users input
+	 * 
+	 * 
+		$ Enter word to search:
+		hello
+		~ Search word 'hello' could not be found.
+		$ Enter word to search:
+		word
+		~ Search word 'word' could not be found.
+		$ Enter word to search:
+		cox
+		~ Search word 'cox' found at 0.
+		~ And search word's index '0' is not a prime number.
+		$ Enter word to search:
+		turk
+		~ Search word 'turk' found at 2.
+		~ And search word's index '2' is a prime number.
+		$ Enter word to search:
+		
+		$ Invalid output, please enter one word to search.
+		$ Enter word to search:
+		hey you
+		$ You can only enter one word searches at a time
+		$ Enter word to search:
+
+	 * 
+	 * We will reuse the scrubs quotes from the last assignment
+	 * Go ahead and copy over some of your console running logic from the previous assignment
 	 * @param args
-	 * if (userInput ==  "/^$/")
-	 * 
-	 * 
-	 * PROBLEMS:
-	 * - When you start the console it would be a better experience if it told you 'please enter some text to receive a scrubs quote' or something like that.
-	 *	 Otherwise, when you start it nothing actually happens until you navigate to the console and start typing
-	 * - Already told you earlier, but the spacing is off and it makes it hard to read your code.  Code readability and formatting is really important
-	 * - You should see a warning in eclipse that says resource leak, scanner is never closed. You just need to add this after the while loop:
-	 * 		scanner.close(); 
-	 * 
-	 * Other than those areas looks alright, does what it should do, and good job figuring out the case insensitive part.
 	 */
-	
-		public static void main(String[] args) {
-			boolean x = true; 
-			Scanner scanner = new Scanner(System.in);
-			Random random = new Random();
-			while(x){
-			String userInput = scanner.nextLine();
-
-			if (userInput.toLowerCase().equals("go away" )){
-				System.out.println("Good Bye");
-				x = false; 
-			}
-			else if (userInput.equals("")){
-				System.out.println ("You must talk in order to get a scrubs quote. ");
-			}
-			else {
-				
-				int a = random.nextInt(scrubsQuotes.size()); 
-				System.out.println (scrubsQuotes.get(a));
-			}
-			}
-		}
-	
+	public static void main(String[] args) {
+		
+	}
 }
-
