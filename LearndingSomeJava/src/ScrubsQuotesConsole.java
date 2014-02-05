@@ -53,7 +53,6 @@ public class ScrubsQuotesConsole {
 				System.out.println ("You must talk in order to get a scrubs quote. ");
 			}
 			else {
-
 				
 				int a = random.nextInt(scrubsQuotes.size()); 
 				System.out.println (scrubsQuotes.get(a));
