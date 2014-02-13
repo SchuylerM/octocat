@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class MethodAndLogicPractice {
 	/**
@@ -57,7 +59,7 @@ public class MethodAndLogicPractice {
 		~ Search word 'turk' found at 2.
 		~ And search word's index '2' is a prime number.
 		$ Enter word to search:
-		
+
 		$ Invalid output, please enter one word to search.
 		$ Enter word to search:
 		hey you
@@ -69,7 +71,65 @@ public class MethodAndLogicPractice {
 	 * Go ahead and copy over some of your console running logic from the previous assignment
 	 * @param args
 	 */
+
 	public static void main(String[] args) {
-		
+		boolean x = true; 
+		Scanner scanner = new Scanner(System.in);
+		while(x){
+			System.out.println ("$ Enter word to search.");
+			String userInput = scanner.nextLine();
+			int index = searchAndAnalyzeWord(userInput);
+			boolean prime = isPrime(index);
+			if(index > -1){	 
+				System.out.println("Search word " + userInput +" found at " + index);
+			}
+			else {
+				System.out.println("~Search word " + "'"+userInput+"'" + " could not be found");
+			}
+			if(prime == true){
+				System.out.println("And search word's index " + "'"+index+"'" + " is a prime number");
+			}
+			else{
+				System.out.println("And search word's index " + "'"+index+"'" + " is not a prime number");
+			}
+
+		}
+
+
 	}
+	/** 
+	 * method that searches through the array above for a user provided word (make sure this case insensitive of course)
+	 */
+	private static int searchAndAnalyzeWord (String word){
+		//word = word +":";
+			
+		for(int n = 0; n< scrubsQuotes.size(); n++){
+			if(word.length() < scrubsQuotes.get(n).length()){
+				String substr = scrubsQuotes.get(n).substring(0, scrubsQuotes.get(n).indexOf(':'));
+				if(substr.toLowerCase().startsWith(word.toLowerCase())){	
+					
+					return n;
+				}
+			}
+		}
+		return -1;
+
+	}
+	/**
+	 * determine if the returned value is actually prime or not
+	 * @param n
+	 * @return
+	 */
+	static boolean isPrime(int n) {
+		//check if n is a multiple of 2
+		if (n%2==0) return true;
+		//if not, then just check the odds
+		for(int i=3;i*i<=n;i+=2) {
+			if(n%i==0)
+				return true;
+		}
+		return false;
+	}
+
+
 }
