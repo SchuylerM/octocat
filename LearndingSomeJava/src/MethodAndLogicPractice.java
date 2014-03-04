@@ -82,16 +82,17 @@ public class MethodAndLogicPractice {
 			boolean prime = isPrime(index);
 			if(index > -1){	 
 				System.out.println("Search word " + userInput +" found at " + index);
+				if(prime == true){
+					System.out.println("And search word's index " + "'"+index+"'" + " is a prime number");
+				}
+				else{
+					System.out.println("And search word's index " + "'"+index+"'" + " is not a prime number");
+				}
 			}
 			else {
 				System.out.println("~Search word " + "'"+userInput+"'" + " could not be found");
 			}
-			if(prime == true){
-				System.out.println("And search word's index " + "'"+index+"'" + " is a prime number");
-			}
-			else{
-				System.out.println("And search word's index " + "'"+index+"'" + " is not a prime number");
-			}
+
 
 		}
 
@@ -102,12 +103,12 @@ public class MethodAndLogicPractice {
 	 */
 	private static int searchAndAnalyzeWord (String word){
 		//word = word +":";
-			
+
 		for(int n = 0; n< scrubsQuotes.size(); n++){
 			if(word.length() < scrubsQuotes.get(n).length()){
 				String substr = scrubsQuotes.get(n).substring(0, scrubsQuotes.get(n).indexOf(':'));
 				if(substr.toLowerCase().startsWith(word.toLowerCase())){	
-					
+
 					return n;
 				}
 			}
